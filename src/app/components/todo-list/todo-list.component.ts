@@ -12,8 +12,14 @@ interface Task {
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
-  imports: [NgFor, FormsModule, NgClass],
-  standalone: true, // Set standalone to true
+  imports: [
+    CommonModule,
+    FormsModule,
+    TaskInputComponent,
+    TaskListComponent, 
+    AppButtonColorDirective
+  ], 
+  standalone: true,
 })
 
 export class TodoListComponent {
