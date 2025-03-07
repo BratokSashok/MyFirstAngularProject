@@ -2,7 +2,7 @@
     background-color: #000;
     padding: 30px;
 
-    &_list{п
+    &_list{
         display: flex;
         justify-content: center;
         align-items: center;

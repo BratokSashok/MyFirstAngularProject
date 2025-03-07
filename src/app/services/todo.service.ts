@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
-import { Interface } from 'readline/promises';
 
-interface Todo {
+export interface Todo {
   userId: number;
   id: number;
   title: string;
