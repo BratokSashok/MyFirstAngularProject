@@ -1,8 +1,9 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { bootstrapApplication, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
+import bootstrap from '../main.server';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,3 +13,10 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay())
     ]
 };
+
+bootstrapApplication( AddComponent, {
+  providers: [
+    provideHttpClient(),
+    provideRouter(routers)
+  ]
+}).catch((err) => console.error(err));
