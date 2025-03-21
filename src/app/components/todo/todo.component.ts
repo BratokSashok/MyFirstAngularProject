@@ -1,14 +1,22 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { StatusPipe } from '../../pipes/status.pipe';
 import { TodoService, Todo } from '../../services/todo.service';
+import { TaskFormComponent } from '../task-form/task-form.component';
 
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, StatusPipe, TaskFormComponent],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.scss'
 })
+
+addTask(task: TaskForm) { 
+  const newTodo = { id: Date.now(), ...task };
+  this.todos.push(newTodo);
+  this.todoService.addTodo(newTodo).subscribe();
+}
 export class TodoComponent implements OnInit{
   todos: Todo[] = [];
   loading = true;
