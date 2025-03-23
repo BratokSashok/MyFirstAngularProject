@@ -3,7 +3,6 @@ import { bootstrapApplication, provideClientHydration, withEventReplay } from '@
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import bootstrap from '../main.server';
 
 export const appConfig: ApplicationConfig = {
   providers: [
